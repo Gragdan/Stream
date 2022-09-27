@@ -19,13 +19,13 @@ public class Main {
         long underAgeStream = persons.stream()
                 .filter(a -> a.getAge() < 18)
                 .count();
-        List conscriptStream = persons.stream()
+        List<String> conscriptStream = persons.stream()
                 .filter(a -> a.getAge() >= 18)
                 .filter(a -> a.getAge() < 27)
                 .map(Person::getFamily)
                 .collect(Collectors.toList());
 
-        List workingAgeStream = persons.stream()
+        List<Person> workingAgeStream = persons.stream()
                 .filter(a -> a.getAge() >= 18)
                 .filter(e -> e.getEducation() == Education.HIGHER)
                 .filter(p -> p.getSex() == Sex.WOMAN && p.getAge() < 60 || p.getSex() == Sex.MAN && p.getAge() < 65)
